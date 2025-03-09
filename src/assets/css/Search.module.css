@@ -1,0 +1,35 @@
+.searchBar {
+    border: 1px solid #181C14;
+    border-radius: 5px;
+}
+
+.btnSearch {
+    border: none;
+    padding: 5px 10px;
+    background-color: rgb(46, 124, 0);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    transition: .5s;
+}
+
+.btnSearch:hover {
+    background-color: #1b6100;
+}
+
+.input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.search {
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    height: 500px;
+    overflow-y: auto;
+    z-index: 5;
+    display: none;
+}

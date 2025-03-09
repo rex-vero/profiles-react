@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'adobemingstd';
+    src: url('../font/adobemingstd-light.otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'adobemingstd' !important;
+    background-color: #3C3D37 !important;
+}

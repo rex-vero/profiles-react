@@ -1,0 +1,16 @@
+.navBg {
+    background: rgb(105, 117, 101);
+    background: linear-gradient(90deg, rgba(105, 117, 101, 1) 13%, rgba(236, 223, 204, 1) 100%);
+}
+
+.text {
+    color: #181C14;
+    font-size: 26px;
+}
+
+@media only screen and (max-width:1000px) {
+    .navBg {
+        background: rgb(105, 117, 101);
+        background: linear-gradient(180deg, rgba(105, 117, 101, 1) 49%, rgba(236, 223, 204, 1) 100%);
+    }
+}

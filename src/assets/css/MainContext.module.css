@@ -1,0 +1,18 @@
+.font {
+    font-size: 150px;
+    color: red;
+}
+
+.cross {
+    animation: cross 1s infinite linear;
+}
+
+@keyframes cross {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}

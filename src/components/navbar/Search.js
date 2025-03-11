@@ -1,12 +1,20 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../../assets/css/Search.module.css';
+import DataContext from '../../contexts/DataContext';
 
 const Search = () => {
     const [searchBar, setSearchBar] = useState('');
-    const handleChange = (e) => {
-        setSearchBar(e.target.value)
+    const [show, setShow] = useState(false);
+    const { card, setFilterData } = useContext(DataContext);
+    const handleChange = e => {
+        setSearchBar(e.target.value);
         if (e.target.value.trim() !== '') {
-            console.log(searchBar);
+            const fArray = card.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()));
+            setFilterData(fArray);
+            fArray.length === 0 ? setShow(true) : setShow(false);
+        } else {
+            setFilterData([]);
+            setShow(false);
         }
     };
     return (
@@ -17,8 +25,8 @@ const Search = () => {
                 </button>
                 <input onChange={handleChange} className={styles.input} type="text" value={searchBar} placeholder='Write Something...' />
             </div>
-            <div className={`position-absolute ${styles.search}`}>
-                lorem   ewkjhfbwef
+            <div className={`${show ? 'd-block' : 'd-none'} position-absolute ${styles.search}`}>
+                <span className='row justify-content-center text-danger'>Not Found</span>
             </div>
         </div>
     );

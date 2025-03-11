@@ -1,5 +1,6 @@
 import { useLayoutEffect } from "react";
 import styles from "../../assets/css/Profile.module.css"
+import { Link } from "react-router-dom";
 
 const ShowProf = ({ item }) => {
     useLayoutEffect(() => {
@@ -16,7 +17,7 @@ const ShowProf = ({ item }) => {
                         <p className="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <div className='d-flex justify-content-around'>
                             <button className='w-25 border-1 btn-outline-success btn rounded-5 px-2 bi bi-pen'></button>
-                            <button className='w-25 border-1 btn-outline-info btn rounded-5 px-2 bi bi-eye'></button>
+                            <Link to={'/'} className='w-25 border-1 btn-outline-info btn rounded-5 px-2 bi bi-arrow-90deg-left' />
                             <button className='w-25 border-1 btn-outline-danger btn rounded-5 px-2 bi bi-trash'></button>
                         </div>
                     </div>

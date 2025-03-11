@@ -12,10 +12,6 @@
     transition: .5s;
 }
 
-.btnSearch:hover {
-    background-color: #1b6100;
-}
-
 .input {
     border: none;
     outline: none;
@@ -28,8 +24,9 @@
     left: 0;
     right: 0;
     background-color: #fff;
-    height: 500px;
-    overflow-y: auto;
     z-index: 5;
-    display: none;
+    text-shadow: 0 0 1px black;
+    padding: 3px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }

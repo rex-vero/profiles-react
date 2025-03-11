@@ -6,7 +6,7 @@ import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
 
 const MainContent = () => {
-    const { spinner, card } = useContext(DataContext);
+    const { spinner, card, filterData } = useContext(DataContext);
     useLayoutEffect(() => {
         document.title = 'Profiles';
     }, []);
@@ -16,7 +16,7 @@ const MainContent = () => {
             {spinner ? <Spinner /> :
                 <div className="container-fluid mt-4">
                     <div className="row">
-                        {card.length > 0 ? card.map((item) => <Card key={item.id} item={item} />) : <NotFound />}
+                        {card.length > 0 ? filterData.length > 0 ? filterData.map(item => <Card key={item.id} item={item} />) : card.map(item => <Card key={item.id} item={item} />) : <NotFound />}
                     </div>
                 </div>}
         </main>

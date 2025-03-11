@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <nav className={`navbar shadow-lg ${styles.navBg}`}>
             <div className="container-fluid d-flex justify-content-around flex-lg-row flex-column align-align-items-center">
-                <Link to={'/'} className={`my-2 my-lg-0 ${styles.text}`}>Profiles</Link>
+                <Link to={'/'} className={`my-2 my-lg-0 text-decoration-none ${styles.text}`}>Profiles</Link>
                 <Search />
             </div>
         </nav>

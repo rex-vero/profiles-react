@@ -8,9 +8,7 @@ import { routes } from './routs';
 const App = () => {
   const router = createBrowserRouter(routes);
   const { load } = useContext(DataContext);
-  return (
-    load ? <Loader /> : <RouterProvider router={router} />
-  );
+  return load ? <Loader /> : <RouterProvider router={router} />
 }
 
 export default App;

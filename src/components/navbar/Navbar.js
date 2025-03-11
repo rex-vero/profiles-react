@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from '../../assets/css/Navbar.module.css';
 import Search from './Search';
 
@@ -5,11 +6,10 @@ const Navbar = () => {
     return (
         <nav className={`navbar shadow-lg ${styles.navBg}`}>
             <div className="container-fluid d-flex justify-content-around flex-lg-row flex-column align-align-items-center">
-                <span className={`my-2 my-lg-0 ${styles.text}`}>Sample App</span>
+                <Link to={'/'} className={`my-2 my-lg-0 ${styles.text}`}>Profiles</Link>
                 <Search />
             </div>
         </nav>
-
     );
 }
 

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const MainContent = () => {
     const { spinner, card } = useContext(DataContext);
     useLayoutEffect(() => {
-        document.title = 'Sample App';
+        document.title = 'Profiles';
     }, []);
     return (
         <main className="d-flex flex-column mt-4">

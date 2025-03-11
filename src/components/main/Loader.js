@@ -12,7 +12,7 @@ const Loader = () => {
             counter <= 100 ? setNum(counter) : clearInterval(time);
         }, 50)
         setLoad(false);
-    }, []);
+    }, [setLoad]);
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">
             <span className={styles.load}>{num}%</span>

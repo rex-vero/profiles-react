@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 
 const Add = () => {
     useLayoutEffect(() => {
-        document.title = 'Sample App - Add';
+        document.title = 'Profiles - Add';
     }, []);
     return (
         <h2>add</h2>

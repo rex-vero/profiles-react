@@ -16,7 +16,7 @@ const MainContent = () => {
             {spinner ? <Spinner /> :
                 <div className="container-fluid mt-4">
                     <div className="row">
-                        {card.length > 0 ? filterData.length > 0 ? filterData.map(item => <Card key={item.id} item={item} />) : card.map(item => <Card key={item.id} item={item} />) : <NotFound />}
+                        {card.length > 0 && (filterData.length > 0 ? filterData : card).map(item => <Card key={item.id} item={item} />) || <NotFound />}
                     </div>
                 </div>}
         </main>

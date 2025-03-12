@@ -5,7 +5,7 @@ const Spinner = () => {
     const { setSpinner } = useContext(DataContext);
     useEffect(() => {
         setSpinner(false);
-    }, [])
+    }, [setSpinner])
     return (
         <div className="d-flex justify-content-center align-items-center mt-5">
             <div className="spinner-border" role="status">

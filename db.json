@@ -1,0 +1,16 @@
+{
+    "profiles": [
+        {
+            "id": "1",
+            "title": "mesmer",
+            "text": "we are not done yet",
+            "img": "https://p325k7wa.twic.pics/high/elden-ring/elden-ring/08-shadow-of-the-erdtree/elden-ring-expansion-SOTE/00-page-content/ERSOTE-header-mobile.jpg?twic=v1/resize=760/step=10/quality=80"
+        },
+        {
+            "id": "2",
+            "title": "tarnished",
+            "text": "we are not done yet",
+            "img": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Elden_Ring_Box_art.jpg/220px-Elden_Ring_Box_art.jpg"
+        }
+    ]
+}

@@ -8,7 +8,7 @@ const ShowProf = ({ item }) => {
     }, [item.title])
     return (
         <div className={`d-flex justify-content-center align-items-center ${styles.vh90}`}>
-            <div className="col-3 mt-2">
+            <div className="m-2">
                 <SingleCard now={'prof'} item={item} />
             </div>
         </div>

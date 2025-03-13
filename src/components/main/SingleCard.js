@@ -2,17 +2,24 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import DataContext from '../../contexts/DataContext';
 import styles from '../../assets/css/Card.module.css';
+import axios from 'axios';
 
 const SingleCard = ({ item, now }) => {
     const { card, setCard, setFilterData } = useContext(DataContext);
     const handleDelete = () => {
-        fetch(`http://localhost:8000/profiles/${item.id}`, { method: 'DELETE' }).then(res => {
-            if (res.ok) {
-                const newList = card.filter(prof => prof.id !== item.id);
-                setCard(newList);
-                setFilterData(newList);
+        const deleteData = async () => {
+            try {
+                const res = await axios.delete(`http://localhost:8000/profiles/${item.id}`);
+                if (res.status === 200) {
+                    const newList = card.filter(prof => prof.id !== item.id);
+                    setCard(newList);
+                    setFilterData(newList);
+                }
+            } catch ({ message }) {
+                console.log(message);
             }
-        })
+        }
+        deleteData();
     }
     return (
         <div className={`card ${styles.bg}`}>

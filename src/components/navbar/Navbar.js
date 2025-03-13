@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import styles from '../../assets/css/Navbar.module.css';
 import Search from './Search';
 import Typing from '../../helper/Typing';
-import Clock from './Clock';
+import Clock from '../../helper/Clock';
+
 
 const Navbar = () => {
     return (

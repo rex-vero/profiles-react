@@ -4,15 +4,28 @@ import NotFound from "./NotFound";
 import DataContext from "../../contexts/DataContext";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const MainContent = () => {
-    const { spinner, card, setCard, filterData } = useContext(DataContext);
+    const { spinner, card, setNet, setCard, setSpinner, filterData } = useContext(DataContext);
     useLayoutEffect(() => {
         document.title = 'Profiles';
     }, []);
     useEffect(() => {
-        fetch('http://localhost:8000/profiles').then(res => res.json()).then(data => setCard(data));
-    }, [setCard])
+        const fetchData = async () => {
+            setSpinner(true);
+            try {
+                const { data } = await axios.get('http://localhost:8000/profiles');
+                setCard(data);
+                setSpinner(false);
+
+            } catch ({ message }) {
+                setNet(message);
+                setSpinner(false);
+            }
+        }
+        fetchData();
+    }, [setCard, setSpinner, setNet])
     return (
         <main className="d-flex flex-column mt-4">
             <Link to={'/add'} className="align-self-center btn btn-outline-dark px-4 bi bi-plus fs-4" />

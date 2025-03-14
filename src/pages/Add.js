@@ -45,7 +45,7 @@ const Add = () => {
                 <form className="row align-items-center p-3" onSubmit={handleAdd}>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Name</label>
-                        <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" />
+                        <input type="text" className="form-control" id="title" name="title" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="text" className="form-label">Description</label>

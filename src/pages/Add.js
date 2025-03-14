@@ -27,14 +27,16 @@ const Add = () => {
             img: photo
         }
         try {
-            await axios.post('http://localhost:8000/profiles/', JSON.stringify(newProfile), {
+            const { status } = await axios.post('http://localhost:8000/profiles/', JSON.stringify(newProfile), {
                 headers: {
                     'accept': 'application/json',
                     'Content-Type': 'application/json'
                 }
             });
-            setCard(prev => [...prev, newProfile]);
-            navigate('/');
+            if (status === 201) {
+                setCard(prev => [...prev, newProfile]);
+                navigate('/');
+            }
         } catch (err) {
             console.log(err);
         }

@@ -3,10 +3,12 @@ import styles from '../assets/css/Profile.module.css';
 import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 import DataContext from "../contexts/DataContext";
+import { useNavigate } from "react-router-dom";
 
 const Add = () => {
     const { setCard } = useContext(DataContext);
     const [photo, setPhoto] = useState('');
+    const navigate = useNavigate();
     const handleImg = (e) => {
         const file = e.target.files[0];
         const data = new FileReader();
@@ -32,6 +34,7 @@ const Add = () => {
                 }
             });
             setCard(prev => [...prev, newProfile]);
+            navigate('/');
         } catch (err) {
             console.log(err);
         }

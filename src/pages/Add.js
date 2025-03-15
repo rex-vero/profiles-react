@@ -47,7 +47,7 @@ const Add = () => {
     return (
         <div className={`d-flex justify-content-center align-items-center ${styles.vh90}`}>
             <div className="container-fluid card p-3 col-6">
-                <form className="row align-items-center p-3" onSubmit={handleAdd}>
+                <form className="d-flex flex-column p-3" onSubmit={handleAdd}>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Name</label>
                         <input type="text" className="form-control" id="title" name="title" />
@@ -56,9 +56,9 @@ const Add = () => {
                         <label htmlFor="text" className="form-label">Description</label>
                         <input type="text" className="form-control" name="text" id="text" />
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="img" className="form-label">Image</label>
-                        <input type="file" onChange={handleImg} className="form-control" name="img" id="img" />
+                    <div className="mb-3 align-self-center">
+                        <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${styles.btn}`}></label>
+                        <input type="file" onChange={handleImg} className="form-control d-none" name="img" id="img" />
                     </div>
                     {photo && (
                         <div className="mb-3">

@@ -18,7 +18,7 @@ const Add = () => {
         }
     }
     const handleAdd = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const data = new FormData(e.currentTarget);
         const newProfile = {
             id: uuidv4(),
@@ -37,8 +37,8 @@ const Add = () => {
                 setCard(prev => [...prev, newProfile]);
                 navigate('/');
             }
-        } catch (err) {
-            console.log(err);
+        } catch ({ message }) {
+            console.log(message);
         }
     }
     useLayoutEffect(() => {

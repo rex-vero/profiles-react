@@ -31,6 +31,8 @@ const SingleCard = ({ item, now }) => {
             title: data.get('title'),
             text: data.get('text'),
         }
+        console.log(updatedData);
+
         try {
             const { data, status } = await axios.put(`http://localhost:8000/profiles/${item.id}`, JSON.stringify(updatedData), {
                 headers: {
@@ -39,10 +41,10 @@ const SingleCard = ({ item, now }) => {
                 }
             });
             if (status === 200) {
-                const temp = [...card];
-                const index = temp.findIndex(prof => prof.id === item.id);
-                setCard(temp[index] = data);
-                console.log('Data updated successfully:', data);
+                const updatedList = card.map(prof => prof.id === item.id ? { ...prof, ...data } : prof);
+                setCard(updatedList);
+                setFilterData(updatedList);
+                console.log('Data updated successfully:', updatedList);
             }
         } catch ({ message }) {
             console.error('Error updating data:', message);

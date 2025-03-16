@@ -34,7 +34,7 @@ const SingleCard = ({ item, now }) => {
         console.log(updatedData);
 
         try {
-            const { data, status } = await axios.put(`http://localhost:8000/profiles/${item.id}`, JSON.stringify(updatedData), {
+            const { data, status } = await axios.patch(`http://localhost:8000/profiles/${item.id}`, JSON.stringify(updatedData), {
                 headers: {
                     'accept': 'application/json',
                     'Content-Type': 'application/json'

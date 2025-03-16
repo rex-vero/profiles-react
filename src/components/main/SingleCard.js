@@ -7,6 +7,8 @@ import axios from 'axios';
 const SingleCard = ({ item, now }) => {
     const { card, setCard, setFilterData } = useContext(DataContext);
     const [edit, setEdit] = useState(false);
+    const [title, setTitle] = useState('');
+    const [text, setText] = useState('');
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
@@ -20,19 +22,12 @@ const SingleCard = ({ item, now }) => {
             console.log(message);
         }
     }
-    const changeEdit = (e) => {
-        e.preventDefault();
-        setEdit(false);
-    }
     const handleEdit = async (e) => {
         e.preventDefault();
-        const data = new FormData(e.currentTarget);
         const updatedData = {
-            title: data.get('title'),
-            text: data.get('text'),
+            title,
+            text
         }
-        console.log(updatedData);
-
         try {
             const { data, status } = await axios.patch(`http://localhost:8000/profiles/${item.id}`, JSON.stringify(updatedData), {
                 headers: {
@@ -44,7 +39,6 @@ const SingleCard = ({ item, now }) => {
                 const updatedList = card.map(prof => prof.id === item.id ? { ...prof, ...data } : prof);
                 setCard(updatedList);
                 setFilterData(updatedList);
-                console.log('Data updated successfully:', updatedList);
             }
         } catch ({ message }) {
             console.error('Error updating data:', message);
@@ -54,12 +48,12 @@ const SingleCard = ({ item, now }) => {
         <form onSubmit={handleEdit} className={`card ${styles.bg}`}>
             <img src={item.img} className={`card-img-top p-1 rounded-3 ${styles.cardImg}`} alt={item.title} />
             <div className="card-body">
-                {edit ? <input type="text" className="form-control my-2" id="title" name="title" placeholder='Name...' /> : <h5 className="card-title text-center">{item.title}</h5>}
-                {edit ? <input type="text" className="form-control my-2" name="text" id="text" placeholder='Description...' /> : <p className="card-text text-center">{item.text}</p>}
+                {edit ? (<input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="form-control my-2" id="title" name="title" placeholder='Name...' />) : (<h5 className="card-title text-center">{item.title}</h5>)}
+                {edit ? (<input type="text" value={text} onChange={(e) => setText(e.target.value)} className="form-control my-2" name="text" id="text" placeholder='Description...' />) : (<p className="card-text text-center">{item.text}</p>)}
                 <div className='d-flex justify-content-around'>
-                    <button type={edit ? "submit" : "button"} onClick={edit ? changeEdit : () => setEdit(true)} className={`w-25 border-1 btn-outline-success btn rounded-5 px-2 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
+                    <button type={edit ? "button" : "submit"} onClick={edit ? () => setEdit(false) : () => setEdit(true)} className={`w-25 border-1 btn-outline-success btn rounded-5 px-2 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
                     <Link to={now === 'home' ? `/profiles/${item.id}` : `/`} className={`w-25 border-1 btn-outline-info btn rounded-5 px-2 bi ${now === 'home' ? `bi-eye` : `bi-arrow-90deg-left`}`} />
-                    <button onClick={edit ? changeEdit : handleDelete} className={`w-25 border-1 btn-outline-danger btn rounded-5 px-2 bi ${edit ? 'bi-x-lg' : 'bi-trash'}`} />
+                    <button onClick={edit ? () => setEdit(false) : handleDelete} className={`w-25 border-1 btn-outline-danger btn rounded-5 px-2 bi ${edit ? 'bi-x-lg' : 'bi-trash'}`} />
                 </div>
             </div>
         </form>

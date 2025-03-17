@@ -88,7 +88,7 @@ const SingleCard = ({ item, now }) => {
                 )}
                 <div className='d-flex justify-content-around'>
                     <button type={edit ? "button" : "submit"} onClick={edit ? () => setEdit(false) : () => setEdit(true)} className={`w-25 border-1 btn-outline-success btn rounded-5 px-2 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
-                    <Link to={now === 'home' ? `/profiles/${item.id}` : `/`} className={`w-25 border-1 btn-outline-info ${edit ? profStyle.disable : ''} btn rounded-5 px-2 bi ${now === 'home' ? `bi-eye` : `bi-arrow-90deg-left`}`} />
+                    <Link to={now === 'home' ? `/profiles/${item.id}` : `/`} className={`w-25 border-1 btn-outline-info ${edit && profStyle.disable} btn rounded-5 px-2 bi ${now === 'home' ? `bi-eye` : `bi-arrow-90deg-left`}`} />
                     <button onClick={edit ? () => setEdit(false) : handleDelete} className={`w-25 border-1 btn-outline-danger btn rounded-5 px-2 bi ${edit ? 'bi-x-lg' : 'bi-trash'}`} />
                 </div>
             </div>

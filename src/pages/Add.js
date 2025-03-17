@@ -57,7 +57,7 @@ const Add = () => {
                         <input type="text" className="form-control" name="text" id="text" />
                     </div>
                     <div className="mb-3 align-self-center">
-                        <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${styles.btn}`}></label>
+                        <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${styles.btn}`} />
                         <input type="file" onChange={handleImg} className="form-control d-none" name="img" id="img" />
                     </div>
                     {photo && (

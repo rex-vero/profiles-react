@@ -22,3 +22,9 @@
     border: 1px rgb(0, 0, 0) solid;
     color: rgb(0, 0, 0);
 }
+
+.disable {
+    pointer-events: none;
+    opacity: .5;
+    cursor: not-allowed;
+}

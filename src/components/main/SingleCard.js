@@ -30,15 +30,15 @@ const SingleCard = ({ item, now }) => {
     }
     return (
         <>
-            <Modal isOpen={openModal} children={firstModal ? (<Edit item={item} formData={formData} />) : (<Delete item={item} />)} isClose={() => setOpenModal(false)} />
-            <form onSubmit={(e) => { setOpenModal(true); e.preventDefault(); }} className={`card ${styles.bg}`}>
+            <Modal isOpen={openModal} children={firstModal ? (<Edit item={item} formData={formData} styles={styles} />) : (<Delete item={item} />)} isClose={() => setOpenModal(false)} />
+            <form onSubmit={(e) => { e.preventDefault(); }} className={`card ${styles.bg}`}>
                 {edit ? (
                     <div className='my-3 d-flex justify-content-center flex-column'>
                         <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${profStyle.btn}`} />
                         <input type="file" onChange={handleImg} className="form-control d-none" name="img" id="img" />
                         {formData.img && (
                             <div className="m-1">
-                                <img className={profStyle.size} src={formData.img} alt={formData.img} />
+                                <img className={profStyle.size} src={formData.img} alt={formData.title} />
                             </div>
                         )}
                     </div>
@@ -56,7 +56,7 @@ const SingleCard = ({ item, now }) => {
                         </>
                     )}
                     <div className='d-flex justify-content-around'>
-                        <button type={edit ? "button" : "submit"} onClick={edit ? () => { setEdit(false); setFirstModal(true); } : () => setEdit(true)} className={`w-25 border-1 btn-outline-success btn rounded-5 px-2 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
+                        <button type={edit ? "button" : "submit"} onClick={edit ? () => { setEdit(false); setFirstModal(true); setOpenModal(true); } : () => setEdit(true)} className={`w-25 border-1 btn-outline-success btn rounded-5 px-2 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
                         <Link to={now === 'home' ? `/profiles/${item.id}` : `/`} className={`w-25 border-1 btn-outline-info ${edit && profStyle.disable} btn rounded-5 px-2 bi ${now === 'home' ? `bi-eye` : `bi-arrow-90deg-left`}`} />
                         <button onClick={edit ? () => setEdit(false) : () => { setOpenModal(true); setFirstModal(false); }} className={`w-25 border-1 btn-outline-danger btn rounded-5 px-2 bi ${edit ? 'bi-x-lg' : 'bi-trash'}`} />
                     </div>

@@ -1,6 +1,5 @@
 import { useContext, useLayoutEffect, useState } from "react";
 import styles from '../assets/css/Profile.module.css';
-import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 import DataContext from "../contexts/DataContext";
 import { useNavigate } from "react-router-dom";
@@ -21,7 +20,7 @@ const Add = () => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
         const newProfile = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             title: data.get('title'),
             text: data.get('text'),
             img: photo

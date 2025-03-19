@@ -1,0 +1,41 @@
+import axios from "axios";
+import { useContext } from "react";
+import DataContext from "../../contexts/DataContext";
+
+const Edit = ({ item, formData }) => {
+    const { card, setCard, setFilterData, setOpenModal } = useContext(DataContext);
+
+    const handleEdit = async () => {
+        const updatedData = {
+            title: formData.title,
+            text: formData.text,
+            img: formData.img
+        }
+        try {
+            const { data, status } = await axios.patch(`http://localhost:8000/profiles/${item.id}`, JSON.stringify(updatedData), {
+                headers: {
+                    'accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (status === 200) {
+                const updatedList = card.map(prof => prof.id === item.id ? { ...prof, ...data } : prof);
+                setCard(updatedList);
+                setFilterData(updatedList);
+            }
+        } catch ({ message }) {
+            console.error('Error updating data:', message);
+        }
+    }
+    return (
+        <div className="d-flex flex-column align-items-center px-2">
+            <span className="my-2">Do You Want To Edit??</span>
+            <div className="d-flex my-2 gap-4">
+                <button onClick={handleEdit} className="btn btn-outline-success">Yes</button>
+                <button onClick={() => setOpenModal(false)} className="btn btn-outline-danger">No</button>
+            </div>
+        </div>
+    );
+}
+
+export default Edit;

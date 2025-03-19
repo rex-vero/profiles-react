@@ -3,19 +3,19 @@ import { useContext, useState } from 'react';
 import DataContext from '../../contexts/DataContext';
 import styles from '../../assets/css/Card.module.css';
 import profStyle from '../../assets/css/Profile.module.css';
-import axios from 'axios';
 import Modal from '../modal/Modal';
 import Delete from '../modal/Delete';
+import Edit from '../modal/Edit';
 
 const SingleCard = ({ item, now }) => {
-    const { card, setCard, setFilterData, openModal, setOpenModal } = useContext(DataContext);
+    const { openModal, setOpenModal } = useContext(DataContext);
     const [edit, setEdit] = useState(false);
+    const [firstModal, setFirstModal] = useState(false);
     const [formData, setFormData] = useState({
         title: item.title,
         text: item.text,
         img: item.img
     });
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prv => ({ ...prv, [name]: value }));
@@ -28,33 +28,10 @@ const SingleCard = ({ item, now }) => {
             data.readAsDataURL(file);
         }
     }
-    const handleEdit = async (e) => {
-        e.preventDefault();
-        const updatedData = {
-            title: formData.title,
-            text: formData.text,
-            img: formData.img
-        }
-        try {
-            const { data, status } = await axios.patch(`http://localhost:8000/profiles/${item.id}`, JSON.stringify(updatedData), {
-                headers: {
-                    'accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
-            if (status === 200) {
-                const updatedList = card.map(prof => prof.id === item.id ? { ...prof, ...data } : prof);
-                setCard(updatedList);
-                setFilterData(updatedList);
-            }
-        } catch ({ message }) {
-            console.error('Error updating data:', message);
-        }
-    }
     return (
         <>
-            <Modal isOpen={openModal} children={< Delete item={item} />} isClose={() => setOpenModal(false)} />
-            <form onSubmit={handleEdit} className={`card ${styles.bg}`}>
+            <Modal isOpen={openModal} children={firstModal ? (<Edit item={item} formData={formData} />) : (<Delete item={item} />)} isClose={() => setOpenModal(false)} />
+            <form onSubmit={(e) => { setOpenModal(true); e.preventDefault(); }} className={`card ${styles.bg}`}>
                 {edit ? (
                     <div className='my-3 d-flex justify-content-center flex-column'>
                         <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${profStyle.btn}`} />
@@ -79,9 +56,9 @@ const SingleCard = ({ item, now }) => {
                         </>
                     )}
                     <div className='d-flex justify-content-around'>
-                        <button type={edit ? "button" : "submit"} onClick={edit ? () => setEdit(false) : () => setEdit(true)} className={`w-25 border-1 btn-outline-success btn rounded-5 px-2 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
+                        <button type={edit ? "button" : "submit"} onClick={edit ? () => { setEdit(false); setFirstModal(true); } : () => setEdit(true)} className={`w-25 border-1 btn-outline-success btn rounded-5 px-2 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
                         <Link to={now === 'home' ? `/profiles/${item.id}` : `/`} className={`w-25 border-1 btn-outline-info ${edit && profStyle.disable} btn rounded-5 px-2 bi ${now === 'home' ? `bi-eye` : `bi-arrow-90deg-left`}`} />
-                        <button onClick={edit ? () => setEdit(false) : () => setOpenModal(true)} className={`w-25 border-1 btn-outline-danger btn rounded-5 px-2 bi ${edit ? 'bi-x-lg' : 'bi-trash'}`} />
+                        <button onClick={edit ? () => setEdit(false) : () => { setOpenModal(true); setFirstModal(false); }} className={`w-25 border-1 btn-outline-danger btn rounded-5 px-2 bi ${edit ? 'bi-x-lg' : 'bi-trash'}`} />
                     </div>
                 </div>
             </form>

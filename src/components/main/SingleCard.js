@@ -35,7 +35,7 @@ const SingleCard = ({ item, now }) => {
                 {edit ? (
                     <div className='my-3 d-flex justify-content-center flex-column'>
                         <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${profStyle.btn}`} />
-                        <input type="file" onChange={handleImg} className="form-control d-none" name="img" id="img" />
+                        <input type="file" onChange={handleImg} required className="form-control d-none" name="img" id="img" />
                         {formData.img && (
                             <div className="m-1">
                                 <img className={profStyle.size} src={formData.img} alt={formData.title} />
@@ -46,8 +46,8 @@ const SingleCard = ({ item, now }) => {
                 <div className="card-body">
                     {edit ? (
                         <>
-                            <input type="text" value={formData.title} onChange={handleChange} className="form-control my-2" id="title" name="title" placeholder='Name...' />
-                            <input type="text" value={formData.text} onChange={handleChange} className="form-control my-2" name="text" id="text" placeholder='Description...' />
+                            <input type="text" value={formData.title} required autoFocus onChange={handleChange} className="form-control my-2" id="title" name="title" placeholder='Name...' />
+                            <input type="text" value={formData.text} required onChange={handleChange} className="form-control my-2" name="text" id="text" placeholder='Description...' />
                         </>
                     ) : (
                         <>

@@ -49,15 +49,15 @@ const Add = () => {
                 <form className="d-flex flex-column p-3" onSubmit={handleAdd}>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Name</label>
-                        <input type="text" className="form-control" id="title" name="title" />
+                        <input type="text" required autoFocus className="form-control" id="title" name="title" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="text" className="form-label">Description</label>
-                        <input type="text" className="form-control" name="text" id="text" />
+                        <input type="text" required className="form-control" name="text" id="text" />
                     </div>
                     <div className="mb-3 align-self-center">
                         <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${styles.btn}`} />
-                        <input type="file" onChange={handleImg} className="form-control d-none" name="img" id="img" />
+                        <input type="file" onChange={handleImg} required className="form-control d-none" name="img" id="img" />
                     </div>
                     {photo && (
                         <div className="mb-3">

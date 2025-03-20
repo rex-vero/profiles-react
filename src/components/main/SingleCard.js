@@ -24,14 +24,12 @@ const SingleCard = ({ item, now }) => {
         const file = e.target.files[0];
         const data = new FileReader();
         data.onload = () => setFormData(prv => ({ ...prv, img: data.result }));
-        if (file) {
-            data.readAsDataURL(file);
-        }
+        file ? data.readAsDataURL(file) : console.log('img faild');
     }
     return (
         <>
             <Modal isOpen={openModal} children={firstModal ? (<Edit item={item} formData={formData} styles={styles} />) : (<Delete item={item} />)} isClose={() => setOpenModal(false)} />
-            <form onSubmit={(e) => { e.preventDefault(); }} className={`card ${styles.bg}`}>
+            <form onSubmit={(e) => e.preventDefault()} className={`card ${styles.bg}`}>
                 {edit ? (
                     <div className='my-3 d-flex justify-content-center flex-column'>
                         <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${profStyle.btn}`} />

@@ -12,9 +12,7 @@ const Add = () => {
         const file = e.target.files[0];
         const data = new FileReader();
         data.onload = () => setPhoto(data.result);
-        if (file) {
-            data.readAsDataURL(file);
-        }
+        file ? data.readAsDataURL(file) : console.log('img faild');
     }
     const handleAdd = async (e) => {
         e.preventDefault();

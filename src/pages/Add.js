@@ -12,7 +12,7 @@ const Add = () => {
         const file = e.target.files[0];
         const data = new FileReader();
         data.onload = () => setPhoto(data.result);
-        file ? data.readAsDataURL(file) : console.log('img faild');
+        file && file.type.startsWith('image/') ? data.readAsDataURL(file) : console.log('img faild');
     }
     const handleAdd = async (e) => {
         e.preventDefault();
@@ -55,7 +55,7 @@ const Add = () => {
                     </div>
                     <div className="mb-3 align-self-center">
                         <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${styles.btn}`} />
-                        <input type="file" onChange={handleImg} required className="form-control d-none" name="img" id="img" />
+                        <input type="file" onChange={handleImg} accept="image/*" required className="form-control d-none" name="img" id="img" />
                     </div>
                     {photo && (
                         <div className="mb-3">

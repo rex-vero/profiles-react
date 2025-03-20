@@ -24,7 +24,7 @@ const SingleCard = ({ item, now }) => {
         const file = e.target.files[0];
         const data = new FileReader();
         data.onload = () => setFormData(prv => ({ ...prv, img: data.result }));
-        file ? data.readAsDataURL(file) : console.log('img faild');
+        file && file.type.startsWith('image/') ? data.readAsDataURL(file) : console.log('img faild');
     }
     return (
         <>
@@ -33,7 +33,7 @@ const SingleCard = ({ item, now }) => {
                 {edit ? (
                     <div className='my-3 d-flex justify-content-center flex-column'>
                         <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${profStyle.btn}`} />
-                        <input type="file" onChange={handleImg} required className="form-control d-none" name="img" id="img" />
+                        <input type="file" accept='image/*' onChange={handleImg} required className="form-control d-none" name="img" id="img" />
                         {formData.img && (
                             <div className="m-1">
                                 <img className={profStyle.size} src={formData.img} alt={formData.title} />

@@ -1,13 +1,12 @@
 import { useContext, useState } from 'react';
 import styles from '../../assets/scss/Search.module.scss';
 import DataContext from '../../contexts/DataContext';
-import _ from 'lodash';
 
 const Search = () => {
     const [searchBar, setSearchBar] = useState('');
     const [show, setShow] = useState(false);
     const { card, setFilterData } = useContext(DataContext);
-    const handleChange = _.debounce(e => {
+    const handleChange = (e) => {
         setSearchBar(e.target.value);
         if (e.target.value.trim() !== '') {
             const fArray = card.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()));
@@ -17,7 +16,7 @@ const Search = () => {
             setFilterData([]);
             setShow(false);
         }
-    }, 1000)
+    }
     return (
         <div className='position-relative'>
             <div className={`d-flex mt-2 mt-lg-0 ${styles.searchBar}`}>

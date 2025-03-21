@@ -7,22 +7,29 @@ import btns from '../assets/scss/Buttons.module.scss';
 
 const Add = () => {
     const { setCard } = useContext(DataContext);
-    const [photo, setPhoto] = useState('');
+    const [profile, setProfile] = useState({
+        title: '',
+        text: '',
+        img: ''
+    })
     const navigate = useNavigate();
+    const handleInput = (e) => {
+        const { name, value } = e.target;
+        setProfile(prv => ({ ...prv, [name]: value }))
+    }
     const handleImg = (e) => {
         const file = e.target.files[0];
         const data = new FileReader();
-        data.onload = () => setPhoto(data.result);
+        data.onload = () => setProfile(prv => ({ ...prv, img: data.result }));
         file && file.type.startsWith('image/') ? data.readAsDataURL(file) : console.log('img faild');
     }
     const handleAdd = async (e) => {
         e.preventDefault();
-        const data = new FormData(e.currentTarget);
         const newProfile = {
             id: crypto.randomUUID(),
-            title: data.get('title'),
-            text: data.get('text'),
-            img: photo
+            title: profile.title,
+            text: profile.text,
+            img: profile.img
         }
         try {
             const { status } = await axios.post('http://localhost:8000/profiles/', JSON.stringify(newProfile), {
@@ -48,11 +55,11 @@ const Add = () => {
                 <form className="d-flex flex-column p-3" onSubmit={handleAdd}>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Name</label>
-                        <input type="text" required autoFocus className="form-control" id="title" name="title" />
+                        <input type="text" value={profile.title} onChange={handleInput} required autoFocus className="form-control" id="title" name="title" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="text" className="form-label">Description</label>
-                        <input type="text" required className="form-control" name="text" id="text" />
+                        <input type="text" value={profile.text} onChange={handleInput} required className="form-control" name="text" id="text" />
                     </div>
                     <div className="mb-3 align-self-center">
                         <label htmlFor="img" className={`d-flex justify-content-center align-items-center ${btns.btn}`} >
@@ -60,9 +67,9 @@ const Add = () => {
                         </label>
                         <input type="file" onChange={handleImg} accept="image/*" required className="d-none" name="img" id="img" />
                     </div>
-                    {photo && (
+                    {profile.img && (
                         <div className="mb-3">
-                            <img className={styles.size} src={photo} alt={photo} />
+                            <img className={styles.size} src={profile.img} alt={profile.title} />
                         </div>
                     )}
                     <button type="submit" className={`bi bi-send-arrow-down fs-5 ${btns.submit}`} />

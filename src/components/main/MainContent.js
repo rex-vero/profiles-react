@@ -30,11 +30,11 @@ const MainContent = () => {
         <main className="d-flex flex-column mt-4">
             <Link to={'/add'} className="align-self-center btn btn-outline-dark px-4 bi bi-plus fs-4" />
             {spinner ? <Spinner /> :
-                <div className="container-fluid mt-4">
+                (<div className="container-fluid mt-4">
                     <div className="row">
-                        {(card.length > 0 && (filterData.length > 0 ? filterData : card).map(item => <Card key={item.id} item={item} />)) || <NotFound />}
+                        {(card.length > 0 && (filterData.length > 0 ? filterData : card).map((item, key) => <Card key={key} item={item} />)) || <NotFound />}
                     </div>
-                </div>}
+                </div>)}
         </main>
     );
 }

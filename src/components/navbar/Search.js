@@ -6,16 +6,20 @@ const Search = () => {
     const [searchBar, setSearchBar] = useState('');
     const [show, setShow] = useState(false);
     const { card, setFilterData } = useContext(DataContext);
+    let timer;
     const handleChange = e => {
         setSearchBar(e.target.value);
-        if (e.target.value.trim() !== '') {
-            const fArray = card.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()));
-            setFilterData(fArray);
-            fArray.length === 0 ? setShow(true) : setShow(false);
-        } else {
-            setFilterData([]);
-            setShow(false);
-        }
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            if (e.target.value.trim() !== '') {
+                const fArray = card.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase()));
+                setFilterData(fArray);
+                fArray.length === 0 ? setShow(true) : setShow(false);
+            } else {
+                setFilterData([]);
+                setShow(false);
+            }
+        }, 1000);
     };
     return (
         <div className='position-relative'>

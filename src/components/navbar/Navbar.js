@@ -4,7 +4,6 @@ import Search from './Search';
 import Typing from '../../helper/Typing';
 import Clock from '../../helper/Clock';
 
-
 const Navbar = () => {
     const location = useLocation();
     return (

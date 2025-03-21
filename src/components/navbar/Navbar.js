@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import styles from '../../assets/css/Navbar.module.css';
+import styles from '../../assets/scss/Navbar.module.scss';
 import Search from './Search';
 import Typing from '../../helper/Typing';
 import Clock from '../../helper/Clock';

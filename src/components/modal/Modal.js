@@ -1,5 +1,5 @@
 import Portal from "../portal/Portal";
-import styles from '../../assets/css/Modal.module.css';
+import styles from '../../assets/scss/Modal.module.scss';
 
 const Modal = ({ children, isOpen, isClose }) => {
     if (!isOpen) return null;

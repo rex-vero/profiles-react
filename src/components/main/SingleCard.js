@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import DataContext from '../../contexts/DataContext';
-import styles from '../../assets/css/Card.module.css';
-import profStyle from '../../assets/css/Profile.module.css';
-import btns from '../../assets/css/Buttons.module.css';
+import styles from '../../assets/scss/Card.module.scss';
+import profStyle from '../../assets/scss/Profile.module.scss';
+import btns from '../../assets/scss/Buttons.module.scss';
 import Modal from '../modal/Modal';
 import Delete from '../modal/Delete';
 import Edit from '../modal/Edit';

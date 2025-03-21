@@ -1,6 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "../../assets/css/Profile.module.css"
+import styles from "../../assets/scss/Profile.module.scss"
 
 const NoProf = () => {
     useLayoutEffect(() => {

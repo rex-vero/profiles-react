@@ -1,9 +1,9 @@
 import { useContext, useLayoutEffect, useState } from "react";
-import styles from '../assets/css/Profile.module.css';
+import styles from '../assets/scss/Profile.module.scss';
 import axios from "axios";
 import DataContext from "../contexts/DataContext";
 import { useNavigate } from "react-router-dom";
-import btns from '../assets/css/Buttons.module.css';
+import btns from '../assets/scss/Buttons.module.scss';
 
 const Add = () => {
     const { setCard } = useContext(DataContext);

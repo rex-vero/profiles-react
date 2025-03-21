@@ -1,5 +1,5 @@
 import { useLayoutEffect } from "react";
-import styles from "../../assets/css/Profile.module.css"
+import styles from "../../assets/scss/Profile.module.scss"
 import SingleCard from "../main/SingleCard";
 
 const ShowProf = ({ item }) => {

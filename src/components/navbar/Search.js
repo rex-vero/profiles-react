@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import styles from '../../assets/css/Search.module.css';
+import styles from '../../assets/scss/Search.module.scss';
 import DataContext from '../../contexts/DataContext';
 import _ from 'lodash';
 

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './assets/css/App.css';
+import './assets/scss/App.css';
 import Loader from './components/main/Loader';
 import DataContext from './contexts/DataContext';
 import { routes } from './routs';

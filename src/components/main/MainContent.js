@@ -5,7 +5,7 @@ import DataContext from "../../contexts/DataContext";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import styles from '../../assets/css/MainContent.module.css';
+import styles from '../../assets/scss/MainContent.module.scss';
 
 const MainContent = () => {
     const { spinner, card, setNet, setCard, setSpinner, filterData } = useContext(DataContext);

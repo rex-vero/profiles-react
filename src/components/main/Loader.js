@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import DataContext from "../../contexts/DataContext";
-import styles from '../../assets/css/Loader.module.css';
+import styles from '../../assets/scss/Loader.module.scss';
 
 const Loader = () => {
     const [num, setNum] = useState(0);

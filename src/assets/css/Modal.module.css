@@ -14,10 +14,10 @@
 .btn {
     scale: 1;
     transition: .3s;
-}
 
-.btn:hover {
-    scale: 1.2;
+    &:hover {
+        scale: 1.2;
+    }
 }
 
 .overlay {

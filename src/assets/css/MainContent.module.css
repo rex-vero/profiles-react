@@ -1,0 +1,60 @@
+.font {
+    font-size: 80px;
+    color: red;
+}
+
+.cross {
+    animation: cross 1s infinite linear;
+}
+
+.plus {
+    position: relative;
+    font: inherit;
+    background-color: #f0f0f0;
+    border: 0;
+    border-radius: 0.5em;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    color: #292929;
+    text-shadow: 0 0.0625em 0 #fff;
+    box-shadow: inset 0 0.0625em 0 0 #f4f4f4, 0 0.0625em 0 0 #efefef,
+        0 0.125em 0 0 #ececec, 0 0.25em 0 0 #e0e0e0, 0 0.3125em 0 0 #dedede,
+        0 0.375em 0 0 #dcdcdc, 0 0.425em 0 0 #cacaca, 0 0.425em 0.5em 0 #cecece;
+    transition: 0.25s ease;
+    touch-action: manipulation;
+
+    &:active,
+    &:hover {
+        color: #000000;
+        transform: translateY(0.225em);
+        box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+            0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+            0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+
+        &:after {
+            height: calc(100% + 0.225em);
+        }
+    }
+
+    &:after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 100%;
+        height: calc(100% + 0.375em);
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        transition: height 0.25s ease;
+    }
+}
+
+@keyframes cross {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}

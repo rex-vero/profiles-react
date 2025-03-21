@@ -5,6 +5,7 @@ import DataContext from "../../contexts/DataContext";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import styles from '../../assets/css/MainContent.module.css';
 
 const MainContent = () => {
     const { spinner, card, setNet, setCard, setSpinner, filterData } = useContext(DataContext);
@@ -28,7 +29,7 @@ const MainContent = () => {
     }, [setCard, setSpinner, setNet])
     return (
         <main className="d-flex flex-column mt-4">
-            <Link to={'/add'} className="align-self-center btn btn-outline-dark px-4 bi bi-plus fs-4" />
+            <Link to={'/add'} className={`align-self-center ${styles.plus} bi bi-plus fs-4`} />
             {spinner ? <Spinner /> :
                 (<div className="container-fluid mt-4">
                     <div className="row">

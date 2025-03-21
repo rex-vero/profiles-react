@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import styles from '../../assets/css/MainContext.module.css';
+import styles from '../../assets/css/MainContent.module.css';
 import DataContext from '../../contexts/DataContext';
 
 const NotFound = () => {

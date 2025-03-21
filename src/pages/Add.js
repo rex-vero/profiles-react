@@ -3,6 +3,7 @@ import styles from '../assets/css/Profile.module.css';
 import axios from "axios";
 import DataContext from "../contexts/DataContext";
 import { useNavigate } from "react-router-dom";
+import btns from '../assets/css/Buttons.module.css';
 
 const Add = () => {
     const { setCard } = useContext(DataContext);
@@ -43,7 +44,7 @@ const Add = () => {
     }, []);
     return (
         <div className={`d-flex justify-content-center align-items-center ${styles.vh90}`}>
-            <div className="container-fluid card p-3 col-6">
+            <div className="container-fluid col-11 col-lg-9 card p-3">
                 <form className="d-flex flex-column p-3" onSubmit={handleAdd}>
                     <div className="mb-3">
                         <label htmlFor="title" className="form-label">Name</label>
@@ -54,15 +55,17 @@ const Add = () => {
                         <input type="text" required className="form-control" name="text" id="text" />
                     </div>
                     <div className="mb-3 align-self-center">
-                        <label htmlFor="img" className={`form-label bi bi-upload fs-1 align-self-center ${styles.btn}`} />
-                        <input type="file" onChange={handleImg} accept="image/*" required className="form-control d-none" name="img" id="img" />
+                        <label htmlFor="img" className={`d-flex justify-content-center align-items-center ${btns.btn}`} >
+                            <i className="bi bi-upload" />
+                        </label>
+                        <input type="file" onChange={handleImg} accept="image/*" required className="d-none" name="img" id="img" />
                     </div>
                     {photo && (
                         <div className="mb-3">
                             <img className={styles.size} src={photo} alt={photo} />
                         </div>
                     )}
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className={`bi bi-send-arrow-down fs-5 ${btns.submit}`} />
                 </form>
             </div>
         </div>

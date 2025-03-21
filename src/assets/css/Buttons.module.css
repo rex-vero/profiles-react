@@ -1,0 +1,111 @@
+.btn {
+    cursor: pointer;
+    border: 1px solid #000000;
+    height: 100%;
+    padding: 20px;
+    font-size: 32px;
+    aspect-ratio: 4/4;
+    border-radius: 50%;
+    color: #000000;
+    transition: .5s;
+
+    &:hover,
+    &:focus {
+        background-color: #000000;
+        color: #fff;
+        animation: btn .5s ease-out;
+        box-shadow: 0 0 0 2rem transparent;
+    }
+}
+
+.danger {
+    background-color: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    transition: .5s;
+
+    &:hover,
+    &:focus {
+        background-color: #dc3545;
+        color: #fff;
+        animation: danger .5s ease-out;
+        box-shadow: 0 0 0 2rem transparent;
+    }
+}
+
+.info {
+    background-color: transparent;
+    border: 1px solid #0dcaf0;
+    color: #0dcaf0;
+    transition: .5s;
+
+    &:hover,
+    &:focus {
+        background-color: #0dcaf0;
+        color: #000000;
+        animation: info .5s ease-out;
+        box-shadow: 0 0 0 2rem transparent;
+    }
+}
+
+.success {
+    background-color: transparent;
+    border: 1px solid #198754;
+    color: #198754;
+    transition: .5s;
+
+    &:hover,
+    &:focus {
+        background-color: #198754;
+        color: #fff;
+        animation: success .5s ease-out;
+        box-shadow: 0 0 0 2rem transparent;
+    }
+}
+
+.submit {
+    cursor: pointer;
+    border: 1px solid #0d6efd;
+    padding: 10px;
+    border-radius: 35px;
+    color: #0d6efd;
+    transition: .5s;
+
+    &:hover,
+    &:focus {
+        background-color: #0d6efd;
+        color: #fff;
+        animation: submit .5s ease-out;
+        box-shadow: 0 0 0 2rem transparent;
+    }
+}
+
+@keyframes btn {
+    0% {
+        box-shadow: 0 0 0 0 #000000;
+    }
+}
+
+@keyframes danger {
+    0% {
+        box-shadow: 0 0 0 0 #dc3545;
+    }
+}
+
+@keyframes info {
+    0% {
+        box-shadow: 0 0 0 0 #0dcaf0;
+    }
+}
+
+@keyframes success {
+    0% {
+        box-shadow: 0 0 0 0 #198754;
+    }
+}
+
+@keyframes submit {
+    0% {
+        box-shadow: 0 0 0 0 #0d6efd;
+    }
+}

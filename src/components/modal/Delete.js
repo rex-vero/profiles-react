@@ -2,8 +2,8 @@ import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../../contexts/DataContext";
 
-const Delete = ({ item }) => {
-    const { card, setCard, setFilterData, setOpenModal } = useContext(DataContext);
+const Delete = ({ item, setOpenModal }) => {
+    const { card, setCard, setFilterData } = useContext(DataContext);
     const handleDelete = async (e) => {
         e.preventDefault();
         try {

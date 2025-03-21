@@ -2,8 +2,8 @@ import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../../contexts/DataContext";
 
-const Edit = ({ item, formData, styles }) => {
-    const { card, setCard, setFilterData, setOpenModal } = useContext(DataContext);
+const Edit = ({ item, setOpenModal, formData, styles }) => {
+    const { card, setCard, setFilterData } = useContext(DataContext);
 
     const handleEdit = async () => {
         const updatedData = {

@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import DataContext from '../../contexts/DataContext';
+import { useState } from 'react';
 import styles from '../../assets/scss/Card.module.scss';
 import profStyle from '../../assets/scss/Profile.module.scss';
 import btns from '../../assets/scss/Buttons.module.scss';
@@ -9,7 +8,7 @@ import Delete from '../modal/Delete';
 import Edit from '../modal/Edit';
 
 const SingleCard = ({ item, now }) => {
-    const { openModal, setOpenModal } = useContext(DataContext);
+    const [openModal, setOpenModal] = useState(false);
     const [edit, setEdit] = useState(false);
     const [firstModal, setFirstModal] = useState(false);
     const [formData, setFormData] = useState({
@@ -29,7 +28,7 @@ const SingleCard = ({ item, now }) => {
     }
     return (
         <>
-            <Modal isOpen={openModal} children={firstModal ? (<Edit item={item} formData={formData} styles={styles} />) : (<Delete item={item} />)} isClose={() => setOpenModal(false)} />
+            <Modal isOpen={openModal} children={firstModal ? (<Edit item={item} setOpenModal={setOpenModal} formData={formData} styles={styles} />) : (<Delete item={item} setOpenModal={setOpenModal} />)} isClose={() => setOpenModal(false)} />
             <form onSubmit={(e) => e.preventDefault()} className={`card ${styles.bg}`}>
                 {edit ? (
                     <div className='my-3 d-flex align-items-center card-body flex-column'>

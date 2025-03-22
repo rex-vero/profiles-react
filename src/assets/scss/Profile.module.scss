@@ -16,4 +16,33 @@
 
 .pointer {
     cursor: pointer;
+    animation: input .5s ease-in-out 2;
+}
+
+.input {
+    border: 1px solid red !important;
+    box-shadow: 0 0 4px red !important;
+    animation: input .5s ease-in-out 2;
+}
+
+@keyframes input {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }

@@ -24,7 +24,7 @@ const SingleCard = ({ item, now }) => {
         const file = e.target.files[0];
         const data = new FileReader();
         data.onload = () => setFormData(prv => ({ ...prv, img: data.result }));
-        file && file.type.startsWith('image/') ? data.readAsDataURL(file) : console.log('img faild');
+        (file && file.type.startsWith('image/')) && data.readAsDataURL(file)
     }
     return (
         <>

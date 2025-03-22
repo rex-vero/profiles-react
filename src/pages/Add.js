@@ -18,7 +18,7 @@ const Add = () => {
             setPhoto(data.result);
             setValue('base64', data.result);
         }
-        file && file.type.startsWith('image/') ? data.readAsDataURL(file) : console.log('img faild');
+        (file && file.type.startsWith('image/')) && data.readAsDataURL(file);
     }
     const handleAdd = async (data) => {
         const newProfile = {
@@ -51,11 +51,11 @@ const Add = () => {
                 <form className="d-flex flex-column p-3" onSubmit={handleSubmit(handleAdd)}>
                     <div className="mb-3">
                         <label htmlFor="title" className={`form-label ${errors.title && 'text-danger text-decoration-underline'}`}>{errors.title ? errors.title.message : 'Title'}</label>
-                        <input type="text" {...register('title', { required: 'Title Is Required' })} autoFocus className="form-control" id="title" name="title" />
+                        <input type="text" {...register('title', { required: 'Title Is Required', pattern: { value: /^[A-Za-z\s]+$/, message: 'Title Only Accept String' } })} autoFocus className={`form-control ${errors.title && styles.input}`} id="title" name="title" />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="text" className={`form-label ${errors.text && 'text-danger text-decoration-underline'}`}>{errors.text ? errors.text.message : 'Description'}</label>
-                        <input type="text" {...register('text', { required: 'Description Is Required' })} className="form-control" name="text" id="text" />
+                        <input type="text" {...register('text', { required: 'Description Is Required' })} className={`form-control ${errors.text && styles.input}`} name="text" id="text" />
                     </div>
                     <div className="mb-3 align-self-center">
                         <label htmlFor="img" className={`d-flex justify-content-center ${errors.img && `text-danger text-decoration-underline ${styles.pointer}`} align-items-center ${!errors.img && btns.btn}`} >

@@ -2,20 +2,23 @@ import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../../contexts/DataContext";
 
-const Delete = ({ item, setOpenModal }) => {
+const Delete = ({ item, setOpenModal, setToast, setError }) => {
     const { card, setCard, setFilterData } = useContext(DataContext);
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
             const { status } = await axios.delete(`http://localhost:8000/profiles/${item.id}`);
             if (status === 200) {
+                setError({ status: false });
                 const newList = card.filter(prof => prof.id !== item.id);
                 setCard(newList);
                 setFilterData(newList);
+                setToast(true);
                 setOpenModal(false);
             }
         } catch ({ message }) {
-            console.log(message);
+            setToast(true);
+            setError({ status: true, message });
         }
     }
     return (

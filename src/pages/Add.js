@@ -81,7 +81,7 @@ const Add = () => {
                                 <img className={styles.size} src={photo} alt={photo} />
                             </div>
                         )}
-                        <button type="submit" disabled={isSubmitting} className={`bi ${(errors.root && 'btn btn-outline-danger') || (isSubmitting ? 'bi-arrow-clockwise' : (isSubmitted ? 'bi-check-circle btn btn-success' : 'bi-send-arrow-down'))} fs-5 ${!errors.root && btns.submit}`} >{errors.root && errors.root.message}</button>
+                        <button type="submit" disabled={changePage} className={`bi ${(errors.root && 'btn btn-outline-danger') || (isSubmitting ? 'bi-arrow-clockwise' : (isSubmitted ? 'bi-check-circle btn btn-success' : 'bi-send-arrow-down'))} fs-5 ${!errors.root && btns.submit}`} >{errors.root && errors.root.message}</button>
                     </form>
                 </div>
             </div>

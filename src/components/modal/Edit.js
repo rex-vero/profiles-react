@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../../contexts/DataContext";
 
-const Edit = ({ item, setOpenModal, formData, styles }) => {
+const Edit = ({ item, setOpenModal, formData, styles, setToast, setError }) => {
     const { card, setCard, setFilterData } = useContext(DataContext);
 
     const handleEdit = async () => {
@@ -22,9 +22,11 @@ const Edit = ({ item, setOpenModal, formData, styles }) => {
                 const updatedList = card.map(prof => prof.id === item.id ? { ...prof, ...data } : prof);
                 setCard(updatedList);
                 setFilterData(updatedList);
+                setToast(true);
             }
         } catch ({ message }) {
-            console.error('Error updating data:', message);
+            setToast(true);
+            setError({ status: true, message });
         }
     }
     return (

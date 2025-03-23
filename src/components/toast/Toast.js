@@ -2,7 +2,7 @@ import Portal from "../portal/Portal";
 import styles from '../../assets/scss/Toast.module.scss';
 import { useEffect, useState } from "react";
 
-const Toast = ({ text, onClose, timer = 3000, type }) => {
+const Toast = ({ text, onClose, timer, type }) => {
     const [visible, setVisible] = useState(false);
     useEffect(() => {
         setVisible(true);

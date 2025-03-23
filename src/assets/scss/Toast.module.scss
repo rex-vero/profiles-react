@@ -1,0 +1,64 @@
+.toast {
+    position: fixed;
+    right: -100px;
+    top: 20px;
+    scale: 0;
+    opacity: 0;
+    transition: .5s ease-in-out;
+    animation: toast .5s ease-in-out;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1000;
+}
+
+.icon {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.success {
+    background-color: rgb(92, 157, 92);
+    color: rgb(2, 54, 22);
+    box-shadow: 2px 5px 5px rgb(2, 54, 22);
+}
+
+.error {
+    background-color: rgb(233, 107, 107);
+    color: rgb(122, 3, 3);
+    box-shadow: 2px 5px 5px rgb(122, 3, 3);
+}
+
+.default {
+    background-color: rgb(255, 255, 255);
+}
+
+.show {
+    opacity: 1;
+    scale: 1;
+    transform: translateX(-20px);
+    right: 0;
+}
+
+.btn {
+    scale: 1;
+    transition: .3s;
+
+    &:hover {
+        scale: 1.2;
+    }
+}
+
+@keyframes toast {
+    from {
+        right: -100px;
+        opacity: 0;
+        scale: 0;
+    }
+
+    to {
+        right: 0;
+        opacity: 1;
+        scale: 1;
+    }
+}

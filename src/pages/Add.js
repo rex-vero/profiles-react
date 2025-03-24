@@ -9,7 +9,7 @@ import Toast from "../components/toast/Toast";
 
 const Add = () => {
     const { setCard } = useContext(DataContext);
-    const { register, formState: { errors, isSubmitting, isSubmitted }, handleSubmit, getValues, setError, setValue } = useForm();
+    const { register, formState: { errors, isSubmitting }, handleSubmit, getValues, setError, setValue } = useForm();
     const [photo, setPhoto] = useState(null);
     const [toast, setToast] = useState(false);
     const [changePage, setChangePage] = useState(false);
@@ -81,7 +81,7 @@ const Add = () => {
                                 <img className={styles.size} src={photo} alt={photo} />
                             </div>
                         )}
-                        <button type="submit" disabled={changePage} className={`bi ${(errors.root && 'btn btn-outline-danger') || (isSubmitting ? 'bi-arrow-clockwise' : (isSubmitted ? 'bi-check-circle btn btn-success' : 'bi-send-arrow-down'))} fs-5 ${!errors.root && btns.submit}`} >{errors.root && errors.root.message}</button>
+                        <button type="submit" disabled={changePage} className={`bi ${(errors.root && 'btn btn-outline-danger') || (isSubmitting ? 'bi-arrow-clockwise' : (changePage ? 'bi-check-circle btn btn-success' : 'bi-send-arrow-down'))} fs-5 ${!errors.root && btns.submit}`} >{errors.root && errors.root.message}</button>
                     </form>
                 </div>
             </div>

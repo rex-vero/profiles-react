@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/profiles-react/static/css/main.67e01ce3.css",
+    "main.js": "/profiles-react/static/js/main.1288f846.js",
+    "static/js/453.1f882292.chunk.js": "/profiles-react/static/js/453.1f882292.chunk.js",
+    "static/media/adobemingstd-light.otf": "/profiles-react/static/media/adobemingstd-light.3e1fce0816567432b838.otf",
+    "index.html": "/profiles-react/index.html",
+    "main.67e01ce3.css.map": "/profiles-react/static/css/main.67e01ce3.css.map",
+    "main.1288f846.js.map": "/profiles-react/static/js/main.1288f846.js.map",
+    "453.1f882292.chunk.js.map": "/profiles-react/static/js/453.1f882292.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.67e01ce3.css",
+    "static/js/main.1288f846.js"
+  ]
+}

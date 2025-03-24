@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Online Access!
+
+You can test this app [HERE](https://rex-vero.github.io/profiles-react) online!
+
 ## Available Scripts
 
 In the project directory, you can run:

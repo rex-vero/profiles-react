@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/profiles-react/static/css/main.a00f5a96.css",
-    "main.js": "/profiles-react/static/js/main.11bc5cf0.js",
-    "static/js/453.1f882292.chunk.js": "/profiles-react/static/js/453.1f882292.chunk.js",
-    "static/media/adobemingstd-light.otf": "/profiles-react/static/media/adobemingstd-light.3e1fce0816567432b838.otf",
-    "index.html": "/profiles-react/index.html",
-    "main.a00f5a96.css.map": "/profiles-react/static/css/main.a00f5a96.css.map",
-    "main.11bc5cf0.js.map": "/profiles-react/static/js/main.11bc5cf0.js.map",
-    "453.1f882292.chunk.js.map": "/profiles-react/static/js/453.1f882292.chunk.js.map"
+    "main.css": "./static/css/main.de77706a.css",
+    "main.js": "./static/js/main.d9df1fd6.js",
+    "static/js/453.1f882292.chunk.js": "./static/js/453.1f882292.chunk.js",
+    "static/media/adobemingstd-light.otf": "./static/media/adobemingstd-light.3e1fce0816567432b838.otf",
+    "index.html": "./index.html",
+    "main.de77706a.css.map": "./static/css/main.de77706a.css.map",
+    "main.d9df1fd6.js.map": "./static/js/main.d9df1fd6.js.map",
+    "453.1f882292.chunk.js.map": "./static/js/453.1f882292.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a00f5a96.css",
-    "static/js/main.11bc5cf0.js"
+    "static/css/main.de77706a.css",
+    "static/js/main.d9df1fd6.js"
   ]
 }

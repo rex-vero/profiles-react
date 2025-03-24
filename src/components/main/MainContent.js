@@ -16,7 +16,7 @@ const MainContent = () => {
         const fetchData = async () => {
             setSpinner(true);
             try {
-                const { data } = await axios.get('http://localhost:8000/profiles');
+                const { data } = await axios.get('https://testapi-profiles-react-server.glitch.me/profiles/');
                 setCard(data);
                 setSpinner(false);
 

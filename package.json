@@ -1,5 +1,6 @@
 {
-  "name": "panel",
+  "homepage": "https://rex-vero.github.io/profiles-react",
+  "name": "profiles-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.8.3",
     "bootstrap": "^5.3.3",
-    "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.2",
@@ -18,7 +18,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"json-server --watch db.json -p 8000\"",
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -42,6 +44,6 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "gh-pages": "^6.3.0"
   }
 }

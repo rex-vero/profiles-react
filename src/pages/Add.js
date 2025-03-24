@@ -31,7 +31,7 @@ const Add = () => {
             img: data.base64
         }
         try {
-            const { status } = await axios.post('http://localhost:8000/profiles/', JSON.stringify(newProfile), {
+            const { status } = await axios.post('https://testapi-profiles-react-server.glitch.me/profiles/', JSON.stringify(newProfile), {
                 headers: {
                     'accept': 'application/json',
                     'Content-Type': 'application/json'

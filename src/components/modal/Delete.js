@@ -7,7 +7,7 @@ const Delete = ({ item, setOpenModal, setToast, setError }) => {
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
-            const { status } = await axios.delete(`http://localhost:8000/profiles/${item.id}`);
+            const { status } = await axios.delete(`https://testapi-profiles-react-server.glitch.me/profiles/${item.id}`);
             if (status === 200) {
                 setError({ status: false });
                 const newList = card.filter(prof => prof.id !== item.id);

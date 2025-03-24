@@ -12,7 +12,7 @@ const Edit = ({ item, setOpenModal, formData, styles, setToast, setError }) => {
             img: formData.img
         }
         try {
-            const { data, status } = await axios.patch(`http://localhost:8000/profiles/${item.id}`, JSON.stringify(updatedData), {
+            const { data, status } = await axios.patch(`https://testapi-profiles-react-server.glitch.me/profiles/${item.id}`, JSON.stringify(updatedData), {
                 headers: {
                     'accept': 'application/json',
                     'Content-Type': 'application/json'

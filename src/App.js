@@ -6,7 +6,7 @@ import DataContext from './contexts/DataContext';
 import { routes } from './routs';
 
 const App = () => {
-  const router = createBrowserRouter(routes);
+  const router = createBrowserRouter(routes, { basename: "/profiles-react" });
   const { load } = useContext(DataContext);
   return load ? <Loader /> : <RouterProvider router={router} />
 }

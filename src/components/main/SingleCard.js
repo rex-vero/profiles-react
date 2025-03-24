@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../../assets/scss/Card.module.scss';
 import profStyle from '../../assets/scss/Profile.module.scss';
 import btns from '../../assets/scss/Buttons.module.scss';
@@ -7,8 +7,10 @@ import Modal from '../modal/Modal';
 import Delete from '../modal/Delete';
 import Edit from '../modal/Edit';
 import Toast from '../toast/Toast';
+import DataContext from '../../contexts/DataContext';
 
 const SingleCard = ({ item, now }) => {
+    const { card, setFilterData } = useContext(DataContext);
     const [openModal, setOpenModal] = useState(false);
     const [edit, setEdit] = useState(false);
     const [firstModal, setFirstModal] = useState(false);
@@ -61,13 +63,13 @@ const SingleCard = ({ item, now }) => {
                     )}
                     <div className='d-flex justify-content-around'>
                         <button type={edit ? "button" : "submit"} onClick={edit ? () => { setEdit(false); setFirstModal(true); setOpenModal(true); } : () => setEdit(true)} className={`w-25 ${btns.success} rounded-5 px-2 py-1 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
-                        <Link to={now === 'home' ? `/profiles/${item.id}` : `/`} className={`w-25 ${btns.info} ${edit && profStyle.disable} rounded-5 d-flex align-items-center justify-content-center px-2 py-1`} >
+                        <Link onClick={now === 'prof' ? () => setFilterData(...card) : null} to={now === 'home' ? `/profiles/${item.id}` : `/`} className={`w-25 ${btns.info} ${edit && profStyle.disable} rounded-5 d-flex align-items-center justify-content-center px-2 py-1`} >
                             <i className={`bi ${now === 'home' ? 'bi-eye' : 'bi-arrow-90deg-left'}`} />
                         </Link>
                         <button onClick={edit ? () => setEdit(false) : () => { setOpenModal(true); setFirstModal(false); }} className={`w-25 ${btns.danger} rounded-5 px-2 py-1 bi ${edit ? 'bi-x-lg' : 'bi-trash'}`} />
                     </div>
                 </div>
-            </form>
+            </form >
         </>
     );
 }

@@ -32,7 +32,7 @@ const SingleCard = ({ item, now }) => {
     return (
         <>
             <Modal isOpen={openModal} children={firstModal ? (<Edit item={item} setError={setError} setToast={setToast} setOpenModal={setOpenModal} formData={formData} styles={styles} />) : (<Delete item={item} setToast={setToast} setError={setError} setOpenModal={setOpenModal} />)} isClose={() => setOpenModal(false)} />
-            {toast && <Toast text={error.status ? error.message : `Profile ${formData.title} ${firstModal ? ' Edited' : ' Deleted'}`} timer={2000} onClose={() => setToast(false)} type={error.status ? 'error' : 'success'} />}
+            {toast && <Toast text={error.status ? error.message : `Profile ${formData.title} ${firstModal ? ' Edited Please Wait...' : ' Deleted'}`} timer={2000} onClose={() => setToast(false)} type={error.status ? 'error' : 'success'} />}
             <form onSubmit={(e) => e.preventDefault()} className={`card ${styles.bg}`}>
                 {edit ? (
                     <div className='my-3 d-flex align-items-center card-body flex-column'>

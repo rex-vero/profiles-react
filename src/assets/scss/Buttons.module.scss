@@ -18,6 +18,19 @@
     }
 }
 
+.img {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+
+    &:hover,
+    &:focus {
+        background-color: #dc3545;
+        color: #fff;
+        animation: danger .5s ease-out;
+        box-shadow: 0 0 0 2rem transparent;
+    }
+}
+
 .danger {
     background-color: transparent;
     border: 1px solid #dc3545;

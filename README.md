@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Online Access!
 
-You can test this app [HERE](https://rex-vero.github.io/profiles-react) online!
+You can test this app [HERE](https://profiles-react.vercel.app/) online!
 
 ## Available Scripts
 

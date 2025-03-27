@@ -1,31 +1,32 @@
 .loader {
-    width: fit-content;
-    font-size: 40px;
-    font-family: system-ui, sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #0000;
-    -webkit-text-stroke: 1px #000;
-    background:
-        radial-gradient(0.71em at 50% 1em, #000 99%, #0000 101%) calc(50% - 1em) 1em/2em 200% repeat-x text,
-        radial-gradient(0.71em at 50% -0.5em, #0000 99%, #000 101%) 50% 1.5em/2em 200% repeat-x text;
-    animation:
-        l10-0 .8s linear infinite alternate,
-        l10-1 4s linear infinite;
-}
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    color: #ffffff;
+    background: radial-gradient(farthest-side, currentColor calc(100% - 6px), #0000 calc(100% - 5px) 0);
+    mask: radial-gradient(farthest-side, #0000 calc(100% - 13px), #000 calc(100% - 12px));
+    border-radius: 50%;
+    animation: load 2s infinite linear;
 
-.loader:before {
-    content: "Loading";
-}
+    &::before,
+    &::after {
+        content: "";
+        grid-area: 1/1;
+        background:
+            linear-gradient(currentColor 0 0) center,
+            linear-gradient(currentColor 0 0) center,
+            no-repeat;
+        background-size: 100% 10px, 10px 100%;
+        background-repeat: no-repeat;
+    }
 
-@keyframes l10-0 {
-    to {
-        background-position-x: 50%, calc(50% + 1em)
+    &::after {
+        transform: rotate(45deg);
     }
 }
 
-@keyframes l10-1 {
-    to {
-        background-position-y: -.5em, 0
+@keyframes load {
+    100% {
+        transform: rotate(1turn)
     }
 }

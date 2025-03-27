@@ -9,7 +9,7 @@ export const routes = [
         path: '/', element: <MainLayout />, children: [
             { path: '/', element: <MainContent /> },
             { path: '/add', element: <Add /> },
-            { path: '/profiles/:id', element: <Profile /> }
+            { path: '/profiles/:title', element: <Profile /> }
         ]
     },
     { path: '*', element: <Error /> }

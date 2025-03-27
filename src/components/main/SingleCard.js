@@ -63,7 +63,7 @@ const SingleCard = ({ item, now }) => {
                     )}
                     <div className='d-flex justify-content-around'>
                         <button type={edit ? "button" : "submit"} onClick={edit ? () => { setEdit(false); setFirstModal(true); setOpenModal(true); } : () => setEdit(true)} className={`w-25 ${btns.success} rounded-5 px-2 py-1 bi ${edit ? 'bi-check2' : 'bi-pen'}`} />
-                        <Link onClick={now === 'prof' ? () => setFilterData(...card) : null} to={now === 'home' ? `/profiles/${item.id}` : `/`} className={`w-25 ${btns.info} ${edit && profStyle.disable} rounded-5 d-flex align-items-center justify-content-center px-2 py-1`} >
+                        <Link onClick={now === 'prof' ? () => setFilterData(...card) : null} to={now === 'home' ? `/profiles/${item.title.toLowerCase()}` : `/`} className={`w-25 ${btns.info} ${edit && profStyle.disable} rounded-5 d-flex align-items-center justify-content-center px-2 py-1`} >
                             <i className={`bi ${now === 'home' ? 'bi-eye' : 'bi-arrow-90deg-left'}`} />
                         </Link>
                         <button onClick={edit ? () => setEdit(false) : () => { setOpenModal(true); setFirstModal(false); }} className={`w-25 ${btns.danger} rounded-5 px-2 py-1 bi ${edit ? 'bi-x-lg' : 'bi-trash'}`} />

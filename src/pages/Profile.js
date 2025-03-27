@@ -5,9 +5,9 @@ import { useContext } from "react";
 import DataContext from "../contexts/DataContext";
 
 const Profile = () => {
-    const { id } = useParams();
+    const { title } = useParams();
     const { card } = useContext(DataContext);
-    const item = card.find(prof => prof.id === id);
+    const item = card.find(prof => prof.title.toLowerCase() === title.toLowerCase());
     return item ? <ShowProf item={item} /> : <NoProf />;
 }
 

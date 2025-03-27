@@ -84,7 +84,7 @@ const Add = () => {
                         {photo && (
                             <>
                                 <div className="mb-3">
-                                    <img className={styles.size} src={photo} alt={photo} />
+                                    <img className={styles.size} src={photo} alt={getValues('title')} />
                                 </div>
                                 {isSubmitting && (
                                     <div className="mb-3 d-flex align-items-center flex-column">

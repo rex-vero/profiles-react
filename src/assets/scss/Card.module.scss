@@ -1,6 +1,12 @@
 .cardImg {
     width: 100%;
     height: 50vh;
+    object-fit: cover;
+}
+
+.cardImgEdit {
+    width: 100%;
+    height: 40vh;
     object-fit: contain;
 }
 

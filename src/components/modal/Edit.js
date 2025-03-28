@@ -41,7 +41,7 @@ const Edit = ({ item, setOpenModal, formData, styles, setToast, setError }) => {
                     <span className="fs-5">Text: </span>
                     {formData.text}
                 </span>)}
-                {formData.img && (<img src={formData.img} className={`card-img-top p-1 rounded-3 ${styles.cardImg}`} alt={formData.title} />)}
+                {formData.img && (<img src={formData.img} className={`card-img-top p-1 rounded-3 ${styles.cardImgEdit}`} alt={formData.title} />)}
             </div>
             <div className="d-flex my-2 gap-4">
                 <button onClick={handleEdit} className="btn btn-outline-success">Yes</button>
